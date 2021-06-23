@@ -1,0 +1,1662 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2580
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 .AppleSystemUIFontMonospaced-Regular;}
+{\colortbl;\red255\green255\blue255;\red27\green31\blue34;\red255\green255\blue255;\red109\green109\blue109;
+}
+{\*\expandedcolortbl;;\cssrgb\c14118\c16078\c18039;\cssrgb\c100000\c100000\c100000;\cssrgb\c50196\c50196\c50196;
+}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clshdrawnil \clwWidth10340\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx4320
+\clmrg \clvertalt \clshdrawnil \clwWidth10340\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+
+\f0\fs24  \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Data Scientist Role Play: Profiling and Analyzing the Yelp Dataset \cell 
+\pard\intbl\itap1\cell \row
+
+
+ Coursera Worksheet\cell \row
+
+
+ \
+\cell \row
+
+
+ Mehrshad Esfahani\cell \row
+
+
+ \
+\cell \row
+
+
+ Part 1: Yelp Dataset Profiling and Understanding\cell \row
+
+
+ \
+\cell \row
+
+
+ 1. Profile the data by finding the total number of records for each of the tables below:\cell \row
+
+
+ 	\cell \row
+
+
+ 	i. 	Attribute table = 10000\cell \row
+
+
+ 	ii. 	Business table = 10000\cell \row
+
+
+ 	iii. 	Category table = 10000\cell \row
+
+
+ 	iv. 	Checkin table = 10000\cell \row
+
+
+ 	v. 	elite_years table = 10000\cell \row
+
+
+ 	vi. 	friend table =  10000\cell \row
+
+
+ 	vii. 	hours table =  10000\cell \row
+
+
+ 	viii. 	photo table = 10000\cell \row
+
+
+ 	ix. 	review table = 10000\cell \row
+
+
+ 	x. 	tip table =  10000\cell \row
+
+
+ 	xi. 	user table =  10000\cell \row
+
+
+ 	\cell \row
+
+
+ Sample code (including NULL values):\cell \row
+
+
+ \
+\cell \row
+
+
+ select count(*) as \cell \row
+
+
+ total_records\cell \row
+
+
+ from attribute;\cell \row
+
+
+ \
+\cell \row
+
+
+ +---------------+\cell \row
+
+
+ | total_records |\cell \row
+
+
+ +---------------+\cell \row
+
+
+ |         10000 |\cell \row
+
+
+ +---------------+\cell \row
+
+
+ \
+\cell \row
+
+
+ 2. Find the total number of distinct records for each of the keys listed below:\cell \row
+
+
+ 1.	Business = 10,000\cell \row
+
+
+ 2.	Hours = 1562\cell \row
+
+
+ 3.	Category = 2643\cell \row
+
+
+ 4.	Attribute = 1115\cell \row
+
+
+ 5.	Review = 10,000\cell \row
+
+
+ 6.	Checkin = 493\cell \row
+
+
+ 7.	Photo = 10,000\cell \row
+
+
+ 8.	Tip = 537\cell \row
+
+
+ 9.	User = 10,000\cell \row
+
+
+ 10.	Friend = 11\cell \row
+
+
+ 11.	Elite_years = 2780\cell \row
+
+
+ \
+\cell \row
+
+
+ 	\cell \row
+
+
+ Sample code:\cell \row
+
+
+ \
+\cell \row
+
+
+ select count(distinct name)  + count(distinct business_id) \cell \row
+
+
+ + count(distinct value)                        \cell \row
+
+
+ as \cell \row
+
+
+ total_records\cell \row
+
+
+ from attribute;\cell \row
+
+
+ \
+\cell \row
+
+
+ +---------------+\cell \row
+
+
+ | total_records |\cell \row
+
+
+ +---------------+\cell \row
+
+
+ |          1115 |\cell \row
+
+
+ +---------------+\cell \row
+
+
+ \
+\cell \row
+
+
+ 3. Are there any columns with null values in the Users table? Indicate "yes," or "no."\cell \row
+
+
+ \
+\cell \row
+
+
+ 	Answer: Zero rows in the answer shows that there is no null values in the User table\cell \row
+
+
+ 	\cell \row
+
+
+ 	\cell \row
+
+
+ 	SQL code used to arrive at answer:\cell \row
+
+
+ 	\cell \row
+
+
+ 	select id\cell \row
+
+
+ , name, review_count, yelping_since, useful, funny, cool, fans, average_stars\cell \row
+
+
+ , compliment_hot, compliment_more, compliment_profile, compliment_cute, compliment_list, compliment_note, compliment_plain, compliment_cool, compliment_funny, compliment_writer, compliment_photos\cell \row
+
+
+ \
+\cell \row
+
+
+ from user\cell \row
+
+
+ where id = NULL or name = NULL or review_count = NULL or yelping_since = NULL or useful = NULL or funny = NULL or cool = NULL or fans= NULL or average_stars= NULL or compliment_hot= NULL or compliment_more= NULL or compliment_profile= NULL or compliment_cute= NULL or compliment_list= NULL or compliment_note= NULL or compliment_plain = NULL or compliment_cool= NULL or compliment_funny= NULL or compliment_writer= NULL or compliment_photos= NULL;\cell \row
+
+
+ \
+\cell \row
+
+
+ +----+------+--------------+---------------+--------+-------+------+------+---------------+----------------+-----------------+--------------------+-----------------+-----------------+-----------------+------------------+-----------------+------------------+-------------------+-------------------+\cell \row
+
+
+ | id | name | review_count | yelping_since | useful | funny | cool | fans | average_stars | compliment_hot | compliment_more | compliment_profile | compliment_cute | compliment_list | compliment_note | compliment_plain | compliment_cool | compliment_funny | compliment_writer | compliment_photos |\cell \row
+
+
+ +----+------+--------------+---------------+--------+-------+------+------+---------------+----------------+-----------------+--------------------+-----------------+-----------------+-----------------+------------------+-----------------+------------------+-------------------+-------------------+\cell \row
+
+
+ +----+------+--------------+---------------+--------+-------+------+------+---------------+----------------+-----------------+--------------------+-----------------+-----------------+-----------------+------------------+-----------------+------------------+-------------------+-------------------+\cell \row
+
+
+ (Zero rows)\cell \row
+
+
+ 4. Find the minimum, maximum, and average value for the following fields:\cell \row
+
+
+ \
+\cell \row
+
+
+ 	i. Table: Review, Column: Stars\cell \row
+
+
+ 	\cell \row
+
+
+ 		min:	1	max:	5	avg: 3.7082\cell \row
+
+
+ 		\cell \row
+
+
+ 	\cell \row
+
+
+ 	ii. Table: Business, Column: Stars\cell \row
+
+
+ 	\cell \row
+
+
+ 		min:  1 		max:	5	avg: 3.6549\cell \row
+
+
+ 		\cell \row
+
+
+ 	\cell \row
+
+
+ 	iii. Table: Tip, Column: Likes\cell \row
+
+
+ 	\cell \row
+
+
+ 		min:	0	max:	2	avg: 0.0144\cell \row
+
+
+ 		\cell \row
+
+
+ 	\cell \row
+
+
+ 	iv. Table: Checkin, Column: Count\cell \row
+
+
+ 	\cell \row
+
+
+ 		min:	1	max:	53	avg:  1.9414\cell \row
+
+
+ 		\cell \row
+
+
+ 	\cell \row
+
+
+ 	v. Table: User, Column: Review_count\cell \row
+
+
+ 	\cell \row
+
+
+ 		min:	0	max:	2000	avg: 24.2995\cell \row
+
+
+ 		\cell \row
+
+
+ Sample code:\cell \row
+
+
+ \
+\cell \row
+
+
+ select min(stars)\cell \row
+
+
+ ,max(stars)\cell \row
+
+
+ ,avg(stars)\cell \row
+
+
+ from review;\cell \row
+
+
+ \
+\cell \row
+
+
+ +------------+------------+------------+\cell \row
+
+
+ | min(stars) | max(stars) | avg(stars) |\cell \row
+
+
+ +------------+------------+------------+\cell \row
+
+
+ |          1 |          5 |     3.7082 |\cell \row
+
+
+ \
+\cell \row
+
+
+ \
+\cell \row
+
+
+ 5. List the cities with the most reviews in descending order:\cell \row
+
+
+ \
+\cell \row
+
+
+ 	SQL code used to arrive at answer:\cell \row
+
+
+ 	\cell \row
+
+
+ 	select\cell \row
+
+
+ city\cell \row
+
+
+ , count(review_count) as total_review\cell \row
+
+
+ from business\cell \row
+
+
+ group by city\cell \row
+
+
+ order by total_review desc;\cell \row
+
+
+ \
+\cell \row
+
+
+ \
+\cell \row
+
+
+ 	Copy and Paste the Result Below:\cell \row
+
+
+ 	\cell \row
+
+
+ +-----------------+--------------+\cell \row
+
+
+ | city            | total_review |\cell \row
+
+
+ +-----------------+--------------+\cell \row
+
+
+ | Las Vegas       |         1561 |\cell \row
+
+
+ | Phoenix         |         1001 |\cell \row
+
+
+ | Toronto         |          985 |\cell \row
+
+
+ | Scottsdale      |          497 |\cell \row
+
+
+ | Charlotte       |          468 |\cell \row
+
+
+ | Pittsburgh      |          353 |\cell \row
+
+
+ | Montr\'e9al        |          337 |\cell \row
+
+
+ | Mesa            |          304 |\cell \row
+
+
+ | Henderson       |          274 |\cell \row
+
+
+ | Tempe           |          261 |\cell \row
+
+
+ | Edinburgh       |          239 |\cell \row
+
+
+ | Chandler        |          232 |\cell \row
+
+
+ | Cleveland       |          189 |\cell \row
+
+
+ | Gilbert         |          188 |\cell \row
+
+
+ | Glendale        |          188 |\cell \row
+
+
+ | Madison         |          176 |\cell \row
+
+
+ | Mississauga     |          150 |\cell \row
+
+
+ | Stuttgart       |          141 |\cell \row
+
+
+ | Peoria          |          105 |\cell \row
+
+
+ | Markham         |           80 |\cell \row
+
+
+ | Champaign       |           71 |\cell \row
+
+
+ | North Las Vegas |           70 |\cell \row
+
+
+ | North York      |           64 |\cell \row
+
+
+ | Surprise        |           60 |\cell \row
+
+
+ | Richmond Hill   |           54 |\cell \row
+
+
+ +-----------------+--------------+\cell \row
+
+
+ (Output limit exceeded, 25 of 362 total rows shown)\cell \row
+
+
+ 	\cell \row
+
+
+ \
+\cell \row
+
+
+ 6. Find the distribution of star ratings to the business in the following cities:\cell \row
+
+
+ \
+\cell \row
+
+
+ 	i. Avon\cell \row
+
+
+ 	\cell \row
+
+
+ 		SQL code used to arrive at answer:\cell \row
+
+
+ \
+\cell \row
+
+
+ select\cell \row
+
+
+ name\cell \row
+
+
+ , stars\cell \row
+
+
+ , review_count\cell \row
+
+
+ from business\cell \row
+
+
+ where city = 'Avon';\cell \row
+
+
+ \
+\cell \row
+
+
+ 	Copy and Paste the Resulting Table Below (2 columns - star rating and count):\cell \row
+
+
+ \
+\cell \row
+
+
+ StarRating	Count\cell \row
+
+
+ 0	          0\cell \row
+
+
+ 1	          0\cell \row
+
+
+ 1.5	          1\cell \row
+
+
+ 2	          0\cell \row
+
+
+ 2.5	          2\cell \row
+
+
+ 3	          1\cell \row
+
+
+ 3.5	          2\cell \row
+
+
+ 4	          2\cell \row
+
+
+ 4.5	          1\cell \row
+
+
+ 5	          1\cell \row
+
+
+ \
+\cell \row
+
+
+ \
+\cell \row
+
+
+ 	\cell \row
+
+
+ 	ii. Beachwood\cell \row
+
+
+ \
+\cell \row
+
+
+ 		SQL code used to arrive at answer:\cell \row
+
+
+ 	\cell \row
+
+
+ select\cell \row
+
+
+ name\cell \row
+
+
+ , stars\cell \row
+
+
+ , review_count\cell \row
+
+
+ from business\cell \row
+
+
+ where city = 'Beachwood';\cell \row
+
+
+ \
+\cell \row
+
+
+ 		\cell \row
+
+
+ Copy and Paste the Resulting Table Below (2 columns - star rating and count):\cell \row
+
+
+ 		\cell \row
+
+
+ +---------------------------------+-------+--------------+\cell \row
+
+
+ | name                            | stars | review_count |\cell \row
+
+
+ +---------------------------------+-------+--------------+\cell \row
+
+
+ | Maltz Museum of Jewish Heritage |   3.0 |            8 |\cell \row
+
+
+ | Charley's Grilled Subs          |   3.0 |            3 |\cell \row
+
+
+ | Sixth & Pine                    |   4.5 |           14 |\cell \row
+
+
+ | Beechmont Country Club          |   5.0 |            6 |\cell \row
+
+
+ | Hyde Park Prime Steakhouse      |   4.0 |           69 |\cell \row
+
+
+ | Origins                         |   4.5 |            3 |\cell \row
+
+
+ | Fyodor Bridal Atelier           |   5.0 |            4 |\cell \row
+
+
+ | College Planning Network        |   2.0 |            8 |\cell \row
+
+
+ | Lucky Brand Jeans               |   3.5 |            3 |\cell \row
+
+
+ | American Eagle Outfitters       |   3.5 |            3 |\cell \row
+
+
+ | Shaker Women's Wellness         |   5.0 |            6 |\cell \row
+
+
+ | Avis Rent A Car                 |   2.5 |            3 |\cell \row
+
+
+ | Cleveland Acupuncture           |   5.0 |            3 |\cell \row
+
+
+ | Studio Mz                       |   5.0 |            4 |\cell \row
+
+
+ +---------------------------------+-------+--------------+\cell \row
+
+
+ \
+\cell \row
+
+
+ 7. Find the top 3 users based on their total number of reviews:\cell \row
+
+
+ 		\cell \row
+
+
+ 	SQL code used to arrive at answer:\cell \row
+
+
+ 	select\cell \row
+
+
+ select\cell \row
+
+
+ name\cell \row
+
+
+ , id\cell \row
+
+
+ , review_count\cell \row
+
+
+ from user\cell \row
+
+
+ order by review_count desc;\cell \row
+
+
+ 		\cell \row
+
+
+ 	Copy and Paste the Result Below:\cell \row
+
+
+ 		\cell \row
+
+
+ +-----------+------------------------+--------------+\cell \row
+
+
+ | name      | id                     | review_count |\cell \row
+
+
+ +-----------+------------------------+--------------+\cell \row
+
+
+ | Gerald    | -G7Zkl1wIWBBmD0KRy_sCw |         2000 |\cell \row
+
+
+ | Sara      | -3s52C4zL_DHRK0ULG6qtg |         1629 |\cell \row
+
+
+ | Yuri      | -8lbUNlXVSoXqaRRiHiSNg |         1339 |\cell \row
+
+
+ \
+\cell \row
+
+
+ \
+\cell \row
+
+
+ 8. Does posing more reviews correlate with more fans?\cell \row
+
+
+ \
+\cell \row
+
+
+ 	Please explain your findings and interpretation of the results:\cell \row
+
+
+ \
+\cell \row
+
+
+ As table below illustrates, posing more reviews does not necessarily correlate with more fans. For example, although, Gerald has posed the most reviews, he has fewer fans in comparison with Mimi. Therefore, sorting the users in descending order based on their total number of reviews does not sort the fans in the same order, meaning that there is not a correlation between the total number of reviews and number of fans. 	\cell \row
+
+
+ \
+\cell \row
+
+
+ \
+\cell \row
+
+
+ select\cell \row
+
+
+ name\cell \row
+
+
+ , id\cell \row
+
+
+ , review_count\cell \row
+
+
+ , fans\cell \row
+
+
+ from user\cell \row
+
+
+ order by review_count desc;\cell \row
+
+
+ \
+\cell \row
+
+
+ +-----------+------------------------+--------------+------+\cell \row
+
+
+ | name      | id                     | review_count | fans |\cell \row
+
+
+ +-----------+------------------------+--------------+------+\cell \row
+
+
+ | Gerald    | -G7Zkl1wIWBBmD0KRy_sCw |         2000 |  253 |\cell \row
+
+
+ | Sara      | -3s52C4zL_DHRK0ULG6qtg |         1629 |   50 |\cell \row
+
+
+ | Yuri      | -8lbUNlXVSoXqaRRiHiSNg |         1339 |   76 |\cell \row
+
+
+ | .Hon      | -K2Tcgh2EKX6e6HqqIrBIQ |         1246 |  101 |\cell \row
+
+
+ | William   | -FZBTkAZEXoP7CYvRV2ZwQ |         1215 |  126 |\cell \row
+
+
+ | Harald    | --2vR0DIsmQ6WfcSzKWigw |         1153 |  311 |\cell \row
+
+
+ | eric      | -gokwePdbXjfS0iF7NsUGA |         1116 |   16 |\cell \row
+
+
+ | Roanna    | -DFCC64NXgqrxlO8aLU5rg |         1039 |  104 |\cell \row
+
+
+ | Mimi      | -8EnCioUmDygAbsYZmTeRQ |          968 |  497 |\cell \row
+
+
+ | Christine | -0IiMAZI2SsQ7VmyzJjokQ |          930 |  173 |\cell \row
+
+
+ | Ed        | -fUARDNuXAfrOn4WLSZLgA |          904 |   38 |\cell \row
+
+
+ | Nicole    | -hKniZN2OdshWLHYuj21jQ |          864 |   43 |\cell \row
+
+
+ | Fran      | -9da1xk7zgnnfO1uTVYGkA |          862 |  124 |\cell \row
+
+
+ | Mark      | -B-QEUESGWHPE_889WJaeg |          861 |  115 |\cell \row
+
+
+ | Christina | -kLVfaJytOJY2-QdQoCcNQ |          842 |   85 |\cell \row
+
+
+ | Dominic   | -kO6984fXByyZm3_6z2JYg |          836 |   37 |\cell \row
+
+
+ | Lissa     | -lh59ko3dxChBSZ9U7LfUw |          834 |  120 |\cell \row
+
+
+ | Lisa      | -g3XIcCb2b-BD0QBCcq2Sw |          813 |  159 |\cell \row
+
+
+ | Alison    | -l9giG8TSDBG1jnUBUXp5w |          775 |   61 |\cell \row
+
+
+ | Sui       | -dw8f7FLaUmWR7bfJ_Yf0w |          754 |   78 |\cell \row
+
+
+ | Tim       | -AaBjWJYiQxXkCMDlXfPGw |          702 |   35 |\cell \row
+
+
+ | L         | -jt1ACMiZljnBFvS6RRvnA |          696 |   10 |\cell \row
+
+
+ | Angela    | -IgKkE8JvYNWeGu8ze4P8Q |          694 |  101 |\cell \row
+
+
+ | Crissy    | -hxUwfo3cMnLTv-CAaP69A |          676 |   25 |\cell \row
+
+
+ | Lyn       | -H6cTbVxeIRYR-atxdielQ |          675 |   45 |\cell \row
+
+
+ +-----------+------------------------+--------------+------+\cell \row
+
+
+ (Output limit exceeded, 25 of 10000 total rows shown)\cell \row
+
+
+ 	\cell \row
+
+
+ 9. Are there more reviews with the word "love" or with the word "hate" in them?\cell \row
+
+
+ \
+\cell \row
+
+
+ 	Answer:\cell \row
+
+
+ As the tables below show there are more reviews with the word \uc0\u147 love\u148  in them compared to the word \u147 hate\u148 . \cell \row
+
+
+ 	\cell \row
+
+
+ 	SQL code used to arrive at answer:\cell \row
+
+
+ \
+\cell \row
+
+
+ select\cell \row
+
+
+ count (*)\cell \row
+
+
+ from review\cell \row
+
+
+ where text like '%love%';\cell \row
+
+
+ \
+\cell \row
+
+
+ +-----------+\cell \row
+
+
+ | count (*) |\cell \row
+
+
+ +-----------+\cell \row
+
+
+ |      1780 |\cell \row
+
+
+ +-----------+\cell \row
+
+
+ \
+\cell \row
+
+
+ select\cell \row
+
+
+ count (*)\cell \row
+
+
+ from review\cell \row
+
+
+ where text like '%hate%';\cell \row
+
+
+ \
+\cell \row
+
+
+ +-----------+\cell \row
+
+
+ | count (*) |\cell \row
+
+
+ +-----------+\cell \row
+
+
+ |       232 |\cell \row
+
+
+ +-----------+\cell \row
+
+
+ 	\cell \row
+
+
+ 10. Find the top 10 users with the most fans:\cell \row
+
+
+ \
+\cell \row
+
+
+ 	SQL code used to arrive at answer:\cell \row
+
+
+ 	\cell \row
+
+
+ 	select\cell \row
+
+
+ name\cell \row
+
+
+ , id\cell \row
+
+
+ , fans\cell \row
+
+
+ from user\cell \row
+
+
+ order by fans desc;\cell \row
+
+
+ \
+\cell \row
+
+
+ \
+\cell \row
+
+
+ 	Copy and Paste the Result Below:\cell \row
+
+
+ \
+\cell \row
+
+
+ 	+-----------+------------------------+------+\cell \row
+
+
+ | name      | id                     | fans |\cell \row
+
+
+ +-----------+------------------------+------+\cell \row
+
+
+ | Amy       | -9I98YbNQnLdAmcYfb324Q |  503 |\cell \row
+
+
+ | Mimi      | -8EnCioUmDygAbsYZmTeRQ |  497 |\cell \row
+
+
+ | Harald    | --2vR0DIsmQ6WfcSzKWigw |  311 |\cell \row
+
+
+ | Gerald    | -G7Zkl1wIWBBmD0KRy_sCw |  253 |\cell \row
+
+
+ | Christine | -0IiMAZI2SsQ7VmyzJjokQ |  173 |\cell \row
+
+
+ | Lisa      | -g3XIcCb2b-BD0QBCcq2Sw |  159 |\cell \row
+
+
+ | Cat       | -9bbDysuiWeo2VShFJJtcw |  133 |\cell \row
+
+
+ | William   | -FZBTkAZEXoP7CYvRV2ZwQ |  126 |\cell \row
+
+
+ | Fran      | -9da1xk7zgnnfO1uTVYGkA |  124 |\cell \row
+
+
+ | Lissa     | -lh59ko3dxChBSZ9U7LfUw |  120 |\cell \row
+
+
+ 	\cell \row
+
+
+ \
+\cell \row
+
+
+ \
+\cell \row
+
+
+ 11. Is there a strong correlation between having a high number of fans and being listed as "useful" or "funny?"\cell \row
+
+
+ 	\cell \row
+
+
+ 	SQL code used to arrive at answer:\cell \row
+
+
+ 	\cell \row
+
+
+ 	select\cell \row
+
+
+ name\cell \row
+
+
+ , id\cell \row
+
+
+ , fans\cell \row
+
+
+ , useful\cell \row
+
+
+ , funny\cell \row
+
+
+ from user\cell \row
+
+
+ order by fans desc;\cell \row
+
+
+ \
+\cell \row
+
+
+ 	Copy and Paste the Result Below:\cell \row
+
+
+ 	\cell \row
+
+
+ 	+-----------+------------------------+------+--------+--------+\cell \row
+
+
+ | name      | id                     | fans | useful |  funny |\cell \row
+
+
+ +-----------+------------------------+------+--------+--------+\cell \row
+
+
+ | Amy       | -9I98YbNQnLdAmcYfb324Q |  503 |   3226 |   2554 |\cell \row
+
+
+ | Mimi      | -8EnCioUmDygAbsYZmTeRQ |  497 |    257 |    138 |\cell \row
+
+
+ | Harald    | --2vR0DIsmQ6WfcSzKWigw |  311 | 122921 | 122419 |\cell \row
+
+
+ | Gerald    | -G7Zkl1wIWBBmD0KRy_sCw |  253 |  17524 |   2324 |\cell \row
+
+
+ | Christine | -0IiMAZI2SsQ7VmyzJjokQ |  173 |   4834 |   6646 |\cell \row
+
+
+ | Lisa      | -g3XIcCb2b-BD0QBCcq2Sw |  159 |     48 |     13 |\cell \row
+
+
+ | Cat       | -9bbDysuiWeo2VShFJJtcw |  133 |   1062 |    672 |\cell \row
+
+
+ | William   | -FZBTkAZEXoP7CYvRV2ZwQ |  126 |   9363 |   9361 |\cell \row
+
+
+ | Fran      | -9da1xk7zgnnfO1uTVYGkA |  124 |   9851 |   7606 |\cell \row
+
+
+ | Lissa     | -lh59ko3dxChBSZ9U7LfUw |  120 |    455 |    150 |\cell \row
+
+
+ | Mark      | -B-QEUESGWHPE_889WJaeg |  115 |   4008 |    570 |\cell \row
+
+
+ | Tiffany   | -DmqnhW4Omr3YhmnigaqHg |  111 |   1366 |    984 |\cell \row
+
+
+ | bernice   | -cv9PPT7IHux7XUc9dOpkg |  105 |    120 |    112 |\cell \row
+
+
+ | Roanna    | -DFCC64NXgqrxlO8aLU5rg |  104 |   2995 |   1188 |\cell \row
+
+
+ | Angela    | -IgKkE8JvYNWeGu8ze4P8Q |  101 |    158 |    164 |\cell \row
+
+
+ | .Hon      | -K2Tcgh2EKX6e6HqqIrBIQ |  101 |   7850 |   5851 |\cell \row
+
+
+ | Ben       | -4viTt9UC44lWCFJwleMNQ |   96 |   1180 |   1155 |\cell \row
+
+
+ | Linda     | -3i9bhfvrM3F1wsC9XIB8g |   89 |   3177 |   2736 |\cell \row
+
+
+ | Christina | -kLVfaJytOJY2-QdQoCcNQ |   85 |    158 |     34 |\cell \row
+
+
+ | Jessica   | -ePh4Prox7ZXnEBNGKyUEA |   84 |   2161 |   2091 |\cell \row
+
+
+ | Greg      | -4BEUkLvHQntN6qPfKJP2w |   81 |    820 |    753 |\cell \row
+
+
+ | Nieves    | -C-l8EHSLXtZZVfUAUhsPA |   80 |   1091 |    774 |\cell \row
+
+
+ | Sui       | -dw8f7FLaUmWR7bfJ_Yf0w |   78 |      9 |     18 |\cell \row
+
+
+ | Yuri      | -8lbUNlXVSoXqaRRiHiSNg |   76 |   1166 |    220 |\cell \row
+
+
+ | Nicole    | -0zEEaDFIjABtPQni0XlHA |   73 |     13 |     10 |\cell \row
+
+
+ +-----------+------------------------+------+--------+--------+\cell \row
+
+
+ (Output limit exceeded, 25 of 10000 total rows shown)\cell \row
+
+
+ \
+\cell \row
+
+
+ 	Please explain your findings and interpretation of the results:\cell \row
+
+
+ \
+\cell \row
+
+
+ Based on the table above sorting the users based on their number of fans doesn\uc0\u146 t show descending or ascending trend in \u147 useful\u148  or \u147 funny\u148  columns. Therefore, there shouldn\u146 t be a strong correlation between having a high number of fans and being listed as "useful" or "funny.\cell \row
+
+
+ 	\cell \row
+
+
+ \
+\cell \row
+
+
+ Part 2: Inferences and Analysis\cell \row
+
+
+ \
+\cell \row
+
+
+ 1. 	Pick one city and category of your choice and group the businesses in that city\cell \row
+
+
+ 	or category by their overall star rating. Compare the businesses with 2-3 stars to \cell \row
+
+
+ 	the businesses with 4-5 stars and answer the following questions. Include your code.\cell \row
+
+
+ 	\cell \row
+
+
+ City: Mesa        Category: Food \cell \row
+
+
+ 	\cell \row
+
+
+ 	i.	Do the two groups you chose to analyze have a different distribution of hours?\cell \row
+
+
+ 	Yes\cell \row
+
+
+ 	\cell \row
+
+
+ 	ii.	Do the two groups you chose to analyze have a different number of reviews?\cell \row
+
+
+ 	\cell \row
+
+
+                 Yes\cell \row
+
+
+ 	\cell \row
+
+
+ 	iii.	Are you able to infer anything from the location data provided between these two groups? Explain.\cell \row
+
+
+ \
+\cell \row
+
+
+ Based on the results, we can see that there seems to be a correlation between the location of the business and their rating. The business that are probably located in the same neighbor have close rating. Also they have similar working hours. Moreover, the business that have longer working hours usually have higher rating. \cell \row
+
+
+ \
+\cell \row
+
+
+ \
+\cell \row
+
+
+ 	SQL code used for analysis:\cell \row
+
+
+ \
+\cell \row
+
+
+ select\cell \row
+
+
+ business.name\cell \row
+
+
+ , business.city\cell \row
+
+
+ , category.category\cell \row
+
+
+ , business.stars\cell \row
+
+
+ , hours.hours\cell \row
+
+
+ , business.review_count\cell \row
+
+
+ , business.postal_code\cell \row
+
+
+ from (business inner join category on business.id = category.business_id) inner join hours on hours.business_id = category.business_id\cell \row
+
+
+ where business.city = 'Mesa' \cell \row
+
+
+  group by business.stars;\cell \row
+
+
+ \
+\cell \row
+
+
+ 		\cell \row
+
+
+ 2.	Group business based on the ones that are open and the ones that are closed. What\cell \row
+
+
+ 	differences can you find between the ones that are still open and the ones that are\cell \row
+
+
+ 	closed? List at least two differences and the SQL code you used to arrive at your\cell \row
+
+
+ 	answer.\cell \row
+
+
+ 		\cell \row
+
+
+ 	i. 	Difference 1:\cell \row
+
+
+ 	\cell \row
+
+
+ The business that are still open have higher rating.\cell \row
+
+
+ 	\cell \row
+
+
+ 	ii.	Difference 2:\cell \row
+
+
+ 	\cell \row
+
+
+ The business that are still open have more reviews.\cell \row
+
+
+ \
+\cell \row
+
+
+ 	iii.	Difference 3:\cell \row
+
+
+ The business that are still open have longer working hours.\cell \row
+
+
+ \
+\cell \row
+
+
+ 	SQL code used for analysis:\cell \row
+
+
+ \
+\cell \row
+
+
+ 	select\cell \row
+
+
+ business.name\cell \row
+
+
+ , business.is_open\cell \row
+
+
+ , category.category\cell \row
+
+
+ , business.stars\cell \row
+
+
+ , hours.hours\cell \row
+
+
+ , business.review_count\cell \row
+
+
+ , business.postal_code\cell \row
+
+
+ from (business inner join category on business.id = category.business_id) inner join hours on hours.business_id = category.business_id\cell \row
+
+
+ where business.city = 'Mesa' \cell \row
+
+
+  group by business.is_open;\cell \row
+
+
+ \
+\cell \row
+
+
+ 	\cell \row
+
+
+ 3. 	For this last part of your analysis, you are going to choose the type of analysis you\cell \row
+
+
+ 	want to conduct on the Yelp dataset and are going to prepare the data for analysis.\cell \row
+
+
+ 	\cell \row
+
+
+ 	Ideas for analysis include: Parsing out keywords and business attributes for sentiment \cell \row
+
+
+ 	analysis, clustering businesses to find commonalities or anomalies between them, \cell \row
+
+
+ 	predicting the overall star rating for a business, predicting the number of fans a \cell \row
+
+
+ 	user will have, and so on. These are just a few examples to get you started, so feel \cell \row
+
+
+ 	free to be creative and come up with your own problem you want to solve. Provide\cell \row
+
+
+ 	answers, in-line, to all of the following:\cell \row
+
+
+ 	\cell \row
+
+
+ 	i. 	Indicate the type of analysis you chose to do:\cell \row
+
+
+ 	\cell \row
+
+
+ 	Finding correlation between the likes with the given rates and using \uc0\u147 like\u148  in the reviews. \cell \row
+
+
+ 	ii.	Write 1-2 brief paragraphs on the type of data you will need for your analysis and why you chose that data:\cell \row
+
+
+ 			\cell \row
+
+
+ I need two sources of data (tables). First, I join these two tables based on users and business. Then I sort them based on rating to see if there is a correlation between the number of stars and likes. \cell \row
+
+
+ The reason I chose this analysis and thus, the data sets is that psychologists have shown that how people think about something can completely change even after a few minutes and they think that how people think just after occurrence of an event is a better representative for the quality of that event compared to what they say after thinking about it. Because tip table is related to the occurrence of the event (shopping) and they write a review after hours or even days, comparing these two tables can help us to explore the validity what psychologists claim. As the result shows there is a slight correlation between the number of likes and stars, but this correlation is not strong. So what psychologists claim seems to be fairly valid.  \cell \row
+
+
+ 		\cell \row
+
+
+ 	iii.	Output of your finished dataset:\cell \row
+
+
+ 	\cell \row
+
+
+ +-------+-------+\cell \row
+
+
+ | stars | likes |\cell \row
+
+
+ +-------+-------+\cell \row
+
+
+ |     3 |     2 |\cell \row
+
+
+ |     5 |     2 |\cell \row
+
+
+ |     5 |     1 |\cell \row
+
+
+ |     5 |     1 |\cell \row
+
+
+ |     5 |     1 |\cell \row
+
+
+ |     5 |     1 |\cell \row
+
+
+ |     5 |     1 |\cell \row
+
+
+ |     5 |     1 |\cell \row
+
+
+ |     5 |     1 |\cell \row
+
+
+ |     5 |     1 |\cell \row
+
+
+ |     3 |     1 |\cell \row
+
+
+ |     4 |     1 |\cell \row
+
+
+ |     4 |     1 |\cell \row
+
+
+ |     4 |     1 |\cell \row
+
+
+ |     4 |     1 |\cell \row
+
+
+ |     4 |     1 |\cell \row
+
+
+ |     4 |     1 |\cell \row
+
+
+ |     4 |     1 |\cell \row
+
+
+ |     4 |     1 |\cell \row
+
+
+ |     4 |     1 |\cell \row
+
+
+ |     4 |     1 |\cell \row
+
+
+ |     4 |     1 |\cell \row
+
+
+ |     4 |     1 |\cell \row
+
+
+ |     4 |     1 |\cell \row
+
+
+ |     4 |     1 |\cell \row
+
+
+ +-------+-------+\cell \row
+
+
+ (Output limit exceeded, 25 of 1227 total rows shown)\cell \row
+
+
+ 	\cell \row
+
+
+ 	iv. 	Provide the SQL code you used to create your final dataset:\cell \row
+
+
+ select\cell \row
+
+
+   review.stars\cell \row
+
+
+ , tip.likes\cell \row
+
+
+ from review inner join tip on review.user_id = tip.user_id\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clshdrawnil \clwWidth10340\clftsWidth3 \clminw1000 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx4320
+\clvertalt \clshdrawnil \clwWidth110779\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\qr\partightenfactor
+ order by tip.likes desc;\cell \lastrow\row
+}
